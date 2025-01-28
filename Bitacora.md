@@ -1,29 +1,42 @@
-1. Una computadora virtual es un dispositivo que procesa datos y realiza cálculos. Opera en base a código binario, donde la información se representa usando combinaciones de 0s y 1s y se dividen en diferentes componentes
+## Computadora digital
+ Una computadora digital es un dispositivo que procesa datos y realiza cálculos. Opera en base a código binario, donde la información se representa usando combinaciones de 0s y 1s y se dividen en diferentes componentes
 
-Unidad Central de Proceso (CPU)
+## Unidad Central de Proceso (CPU)
 Es quien ejecuta e interpreta, realiza cálculos y gestiona el flujo de datos diferentes datos de la computadora
 
 ## Memoria
-
-Las computadoras digitales usan diferentes tipos de memoria para almacenar información de manera temporal o permanente ya sea RAM o ROM 
-usualmente es a corto plazo
+Las computadoras digitales usan diferentes tipos de memoria para almacenar información de manera temporal en la RAM (Random Access Memory) o de forma persistente.
 
 ## Dispositivio de Entrada y Salida
-
 Todos los competentes físicos que hay en el computador
 
-Dispositivos de Almacenamiento 
+ 2. 
+## Un programa
+Un programa es un conjunto de instrucciones que le indican a un computador que hacer 
+ 
+## Lenguaje Ensamblador
+Es un lenguaje de bajo nivel de programación que sirve como puente para el lenguaje de alto nivel que sirve como medio para poder controlar la CPU de manera directa sin la necesidad de escribir en binario.
 
-Esta se usa para almacenar datos a largo plazo ya sea en unidades de disco duro (HDD) o unidades de estado solido (SSD)
+## Lenguaje de máquina
 
-Software
+Es el lenguaje de bajo nivel que funciona directamente con la CPU a traves de codigo binario.
 
-Los componentes de hardware y software, las computadoras digitales dependen de algoritmos para resolver problemas. Los algoritmos son un conjunto de instrucciones paso a paso que dictan cómo debe la computadora resolver una tarea o problema particular.
+3. 
 
- 2. Lenguaje Ensamblador
+## PC
+Es quien indica al procesador que accion se debe ejecutar, guarda la direccion de memoria donde esta la siguiente instruccion a ejecutar
 
-Es un lenguaje de bajo nivel de programación que  isrve como puente para el lenguaje de alto nivel que sirve como medio para poder  controlar el hardware de manera directa y esta es la que se acerca directamente al funcionaiento interdo del computador
+## D
+Es un regustro de proposito general 
 
-3. Lenguaje de máquina
+## A
+Es un registro de proposito general 
 
-Es el lenguaje que unicamente entiende el computador pues su estructura 
+4. 
+
+@100
+D = A
+@32
+M = D
+
+# Reto
