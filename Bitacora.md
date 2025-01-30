@@ -105,7 +105,6 @@ M=D
 D;JEQ
 ```
 ## 7
-
 ```
 @100 
 D=A 
@@ -113,6 +112,22 @@ D=A
 D=M-D 
 @20 
 D;JLT 
+```
+## 8
+# a
+Lo que hace esto es registrar los datos de *@VAR1* y *@VAR2*, sumarlos y almacenar los datos en *@VAR3*
+
+# b
+
+## 9
+
+## 10
+```
+@R0
+D=M
+D=D+M
+@R1
+M=D
 ```
 ## 11
 ### a
@@ -134,6 +149,7 @@ Son etiquetas (tags)
 @CONT indica la posicion en ROM de la etiqueta CONT
 
 ## 12
+```
 @69
 D=A
 @R2
@@ -142,8 +158,10 @@ D=D+M
 D=D+M
 @R4
 M=D
+```
 
 ## 13
+```
 @R0
 D=M
 @POSITIVE
@@ -170,6 +188,7 @@ M=D
 (LOOP)
 @LOOP
 0;JMP
+```
 
 ## 14
 ```
@@ -207,8 +226,43 @@ D=D-A
 D;JEQ   
 ```
 ## 18
+![alt text](image.png)
 
-
+## 19
+```
+@16384 
+#ERR 
+@32 
+@6208 
+D&A 
+#ERR  
+@19
+D=A;JLT
+@32 
+D=M 
+@16384 
+D=D-A 
+@4 
+D;JLE 
+@16 
+AM=M-1 
+M=0 
+@4 
+0;JMP 
+@16 
+D=M 
+@24576 
+D=D-A 
+@4 
+D;JGE 
+A=M 
+M=-1 
+@16 
+M=M+1 
+@4 
+0;JMP 
+```
+## 20
 
 
 
