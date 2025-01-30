@@ -40,3 +40,177 @@ D = A
 M = D
 
 # Reto
+# RETO
+### 1 Carga en D el valor 1978.
+
+```
+@1978
+D=A
+```
+
+### 2 Guarda en la posición 100 de la RAM el número 69.
+
+```
+@69
+D=A
+@100
+M=D
+```
+
+### 3 Guarda en la posición 200 de la RAM el contenido de la posición 24 de la RAM.
+
+```
+@24
+D=M
+@200
+M=D
+```
+
+### 4 Lee lo que hay en la posición 100 de la RAM, resta 15 y guarda el resultado en la posición 100 de la RAM.
+
+```
+@15
+D=A
+@100
+M=M-D
+```
+
+### 4.1 Lee lo que hay en la posición 100 de la RAM, resta 15 y guarda el resultado en la posición 200 de la RAM.
+
+```
+@15
+D=A
+@100
+D=M-D
+@200
+M=D
+```
+
+### 5 Suma el contenido de la posición 0 de la RAM, el contenido de la posición 1 de la RAM y con la constante 69. Guarda el resultado en la posición 2 de la RAM.
+
+```
+@69
+D=A
+@1
+D=D+M
+@0
+D=D+M
+@2
+M=D
+```
+
+### 6 Si el valor almacenado en D es igual a 0 salta a la posición 100 de la ROM.
+```
+@100
+D;JEQ
+```
+## 7
+
+```
+@100 
+D=A 
+@100 
+D=M-D 
+@20 
+D;JLT 
+```
+## 11
+### a
+Lo que hace el programa es ser un contador de 1000 a @0
+### b
+
+
+### c
+Se encuentra en la ROM estando en la dirección @0
+
+### d
+Almacenar el valor @1000 en A y está alamacenada en la ROM en dirección @1
+
+### e
+Son etiquetas (tags)
+
+### f
+@i indica la posicion en RAM de la variable i
+@CONT indica la posicion en ROM de la etiqueta CONT
+
+## 12
+@69
+D=A
+@R2
+D=D+M
+@R1
+D=D+M
+@R4
+M=D
+
+## 13
+@R0
+D=M
+@POSITIVE
+D;JGE        
+@NEGATIVE
+0;JMP        
+
+(POSITIVE)
+@1
+D=A           
+@R1
+M=D           
+@LOOP
+0;JMP         
+
+(NEGATIVE)
+@1
+D=-A          
+@R1
+M=D           
+@LOOP
+0;JMP         
+
+(LOOP)
+@LOOP
+0;JMP
+
+## 14
+```
+@R1
+D=A
+@R4
+M=D
+```
+## 15
+```
+@1
+D=-A
+@R0
+A=M
+M=D
+```
+## 16
+# a
+El programa suma todos los digitos del Array
+
+# b
+La dirección del array es 
+# c
+La dirección base de sum es 10 despues de la direccion base del array porque el array ocupa 10 espacios
+# d
+J la dirección de j está una despues de sum es porque justo despues de encontrar a sum encuentra j
+
+## 17
+```
+@D    
+D=M    
+@7     
+D=D-A    
+@69     
+D;JEQ   
+```
+## 18
+
+
+
+
+
+
+
