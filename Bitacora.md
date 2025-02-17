@@ -10,7 +10,7 @@ Es quien ejecuta, interpreta, realiza cálculos y gestiona el flujo de datos dif
 
 ## Memoria
 
-Las computadoras digitales usan diferentes tipos de memoria para almacenar información de manera temporal en la RAM (Random Access Memory) o de forma persistente.
+Las computadoras digitales usan diferentes tipos de memoria para almacenar información de manera temporal en la RAM (Random Access Memory) o de forma persistente ROM, tambien existe PC y C.
 
 ## Dispositivio de Entrada y Salida
 
@@ -38,16 +38,16 @@ Es el lenguaje de bajo nivel que funciona directamente con la CPU a traves de co
 
 ## PC
 
-Es quien indica al procesador que accion se debe ejecutar, guarda la direccion de memoria donde esta la siguiente instruccion a ejecutar
+Es quien indica al procesador que accion se debe ejecutar, guarda la direccion de memoria donde esta la siguiente instruccion a ejecutar (Program counter)
 
 ## D
 
-Es un registro de proposito general 
+Es un registro de proposito general (Guardar dato) 
 
 
 ## A
 
-Es un registro de proposito general 
+Es quien se encarga de dar la dirección en la RAM (Adress)
 
 # ¿Para qué los usa la CPU?
 
@@ -148,7 +148,7 @@ Lo que hace esto es registrar los datos de *@VAR1* y *@VAR2*, sumarlos y almacen
 # b
 ## En qué posición de la memoria está var1, var2 y var3? ¿Por qué en esas posiciones?
 
-*@VAR1*, *@VAR2* y *@VAR3* Estan almacenadas en X posicion al poder ser cualquier variable 
+*@VAR1*, *@VAR2* y *@VAR3* Estan almacenadas en la diección @16,@17 y @18 respectivamente
 
 ## 9 Considera el siguiente programa:
 ```
@@ -284,9 +284,8 @@ M=D
 ## .
 ```
 @R1
-D=A
-@R4
-M=D
+A=M 
+D=M 
 ```
 
 ## 15 Implementa en ensamblador el siguiente problema. En la posición R0 está almacenada la dirección inicial de una región de memoria. En la posición R1 está almacenado el tamaño de la región de memoria. Almacena un -1 en esa región de memoria.
@@ -308,15 +307,62 @@ for (int j = 0; j < 10; j++) {
     sum = sum + arr[j];
 }
 ```
+```
+@256   
+D=A
+@addrArr
+M=D   
 
+@0
+D=A
+@sum
+M=D     
+
+@0
+D=A
+@j
+M=D   
+
+
+(LOOP)
+@j
+D=M    
+@10
+D=D-A   
+@END
+D;JGE   
+
+
+@addrArr
+D=M   
+@j
+A=D+M   
+D=M    
+@sum
+M=M+D  
+
+
+@j
+M=M+1
+
+
+@LOOP
+0;JMP
+
+
+(END)
+@END
+0;JMP   
+
+```
 # a ¿Qué hace este programa?
 
 
 El programa suma todos los digitos del Array
 
-# b ¿Cuál es la dirección base de arr en la memoria RAM?
+# b ¿Cuál es la dirección base de array en la memoria RAM?
 
-La dirección del array es Arbitraria pero los 10 elementos del ```Array``` se almacenan de forma continua
+La dirección del array es la 256 en la RAM y los 10 elementos del ```Array``` se almacenan de forma continua
 
 # c ¿Cuál es la dirección base de sum en la memoria RAM y por qué?
 
@@ -332,10 +378,7 @@ if ( (D - 7) == 0) goto a la instrucción en ROM[69]
 ```
 ## .
 
-```
-@D    
-D=M    
-@7     
+```    
 D=D-A    
 @69     
 D;JEQ   
@@ -343,7 +386,7 @@ D;JEQ
 
 ## 18 Utiliza la herramienta para dibujar un bitmap en la pantalla.
 
-![alt text](<Captura de pantalla 2025-02-13 162717.png>)
+![alt text](image.png)
 
 ## 19 Analiza el siguiente programa en lenguaje de máquina:
 
