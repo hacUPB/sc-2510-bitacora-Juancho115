@@ -1,0 +1,31 @@
+
+### ¿Cuál es el resultado que se obtiene al ejecutar este programa?
+Lo que hace el programa es dibujar sobre la pantalla cada que se pasa el mouse por la pantalla 
+
+### - ¿Qué fue lo que incluimos en el archivo .h?
+
+Le agregamos la posibilidad de cambiar el color de las particulas 
+
+### - ¿Cómo funciona la aplicación?
+
+cuando se mueve el mouse pinta las particulas sobre la pantalla
+
+### - ¿Qué hace la función mouseMoved?
+
+Muestra el camino en donde se pintan las particulas
+
+### - ¿Qué hace la función mousePressed?
+
+Cambia el color de las particulas
+
+### - ¿Qué hace la función setup?
+
+Es lo que primero ejecuta el programa 
+
+### - ¿Qué hace la función update?
+
+Lo que hace que siempre se actualice de manera infinta 
+
+### - ¿Qué hace la función draw?
+
+Lo que permite mostrar el render 

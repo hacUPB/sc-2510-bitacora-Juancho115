@@ -312,18 +312,14 @@ for (int j = 0; j < 10; j++) {
 D=A
 @addrArr
 M=D   
-
 @0
 D=A
 @sum
 M=D     
-
 @0
 D=A
 @j
 M=D   
-
-
 (LOOP)
 @j
 D=M    
@@ -331,8 +327,6 @@ D=M
 D=D-A   
 @END
 D;JGE   
-
-
 @addrArr
 D=M   
 @j
@@ -340,17 +334,10 @@ A=D+M
 D=M    
 @sum
 M=M+D  
-
-
 @j
 M=M+1
-
-
 @LOOP
 0;JMP
-
-
-(END)
 @END
 0;JMP   
 
