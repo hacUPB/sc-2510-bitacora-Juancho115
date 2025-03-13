@@ -284,19 +284,43 @@ M=D
 ## .
 ```
 @R1
-A=M 
-D=M 
+A=M
+D=M
+@R4
+M=D
 ```
 
 ## 15 Implementa en ensamblador el siguiente problema. En la posición R0 está almacenada la dirección inicial de una región de memoria. En la posición R1 está almacenado el tamaño de la región de memoria. Almacena un -1 en esa región de memoria.
 ## . 
 
 ```
-@1
-D=-A
-@R0
-A=M
+```
+@R1
+D=M
+@SIZE
 M=D
+
+(LOOP)
+@SIZE        
+D=M
+@END
+D;JEQ
+
+@START       
+A=M         
+M=-1        
+
+@START
+M=M+1
+@SIZE
+M=M-1
+@LOOP
+0;JMP
+
+(END)
+@END
+0;JMP
+```
 ```
 
 ## 16 Implementa en lenguaje ensamblador el siguiente programa:
@@ -307,40 +331,38 @@ for (int j = 0; j < 10; j++) {
     sum = sum + arr[j];
 }
 ```
-```
-@256   
+// int[] arr = new int[10];
+@32
 D=A
-@addrArr
-M=D   
-@0
-D=A
-@sum
-M=D     
-@0
-D=A
-@j
-M=D   
-(LOOP)
-@j
-D=M    
+@arrAddr
+M=D
 @10
-D=D-A   
+D=A
+@arrSize
+M=D
+// for (int j = 0; j < 10; j++) {
+(LOOP) @j
+D=M
+@arrSize
+D=D-M
 @END
-D;JGE   
-@addrArr
-D=M   
+D;JEQ
+//     sum = sum + arr[j];
+@arrAddr
+D=M
 @j
-A=D+M   
-D=M    
+A=D+M
+D=M
 @sum
-M=M+D  
+M=D+M
+@1
+D=A
 @j
-M=M+1
+M=D+M
 @LOOP
-0;JMP
-@END
-0;JMP   
-
+0;JEQ
+// }
+(END) 0;JMP
 ```
 # a ¿Qué hace este programa?
 
