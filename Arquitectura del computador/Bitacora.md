@@ -332,13 +332,13 @@ for (int j = 0; j < 10; j++) {
 }
 ```
 // int[] arr = new int[10];
-@32
+@32 // Direccion Arbitraria donde inicia el array
 D=A
-@arrAddr
+@arrAddr // Variable que indica la direccion inicial/base del array
 M=D
-@10
+@10 // Tamaño del array
 D=A
-@arrSize
+@arrSize // Variable que almacena el tamaño del array
 M=D
 // for (int j = 0; j < 10; j++) {
 (LOOP) @j
