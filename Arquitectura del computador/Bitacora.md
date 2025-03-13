@@ -364,7 +364,9 @@ M=D+M
 // }
 (END) 0;JMP
 ```
-# a ¿Qué hace este programa?
+
+# a
+¿Qué hace este programa?
 
 
 El programa suma todos los digitos del Array

@@ -272,3 +272,106 @@ M=D
 @LOOP
 0;JMP
 ```
+
+# Reto
+## 1.
+Escribe un programa en lenguaje ensamblador que sume los primeros 100 números naturales.
+
+```
+@i
+M=1       
+@sum
+M=0       
+
+(LOOP)
+    @i
+    D=M     
+    @101    
+    D=D-A
+    @END
+    D;JGE    
+
+
+    @i
+    D=M      
+    @sum
+    M=M+D    
+
+    // i++
+    @i
+    M=M+1   
+
+    @LOOP
+    0;JMP    
+
+(END)
+    @END
+    0;JMP    
+```
+- ¿Cómo están implementadas las variables i y sum?
+
+``i`` y ```sum``` se implementan como direcciones de memoria asignadas automáticamente por el ensamblador.
+Se accede a ellas con ``@i`` y ``@sum``, y se manipulan con instrucciones de carga.
+
+- ¿En qué direcciones de memoria están estas variables?
+`
+```i``` se almacena en la direccion 16 de la RAM
+```sum``` Se almacena en la dirección 17 de la RAM
+
+- ¿Cómo está implementado el ciclo while?
+
+El ``While`` se imlpementa para comparar al valor de ``ì``
+
+- ¿Cómo se implementa la variable i?
+
+``i`` funciona como una posicion enjn la RAM
+
+- ¿En qué parte de la memoria se almacena la variable i?
+
+Se almacena en la Dirección 16 de la RAM
+
+- Después de todo lo que has hecho, ¿Qué es entonces una variable?
+
+Es algo simbolico que representa una direccion en la memoria 
+
+- ¿Qué es la dirección de una variable?
+
+Es la ubciacion en donde se almacena un dato
+
+- ¿Qué es el contenido de una variable?
+
+El valor almecenado en la dirección
+
+## 2.
+Transforma el programa en alto nivel anterior para que utilice un ciclo ``for`` en vez de un ciclo ``while``.
+
+```
+@i
+M=1     
+@sum
+M=0       
+
+(LOOP)
+    @i
+    D=M      
+    @101     
+    D=D-A
+    @END
+    D;JGE   
+
+    @i
+    D=M     
+    @sum
+    M=M+D    
+
+   
+    @i
+    M=M+1   
+
+    @LOOP
+    0;JMP   
+
+(END)
+    @END
+    0;JMP    
+```
