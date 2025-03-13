@@ -1,0 +1,377 @@
+## 1
+### - ¿Qué es la entrada-salida mapeada a memoria?
+
+En la plataforma Hack, la entrada-salida mapeada a memoria es un método en el que los dispositivos de entrada y salida se controlan a través de la memoria del sistema lo que crea es que se pueda leer una informacion como el teclado y pasarlo a un codigo usando solo la memoria del sistema.
+
+
+### - ¿Cómo se implementa en la plataforma Hack?
+
+Se implementa en que en la entrada mapeada es quien escribe los datos en la region de la memoria y los de salida mapeada se limita a leerlos y mostrarlos en la menra que se deba mostrar
+Y en Hack la entrada es el teclado y al presionar alguna tecla, en la RAM se muestra el valor que equivale a la tecla presionada y el dispositivo de salida es el display, donde de manera lineal se representa la información que escribe el programa en la region de memoria especifica.
+
+
+### - Inventa un programa que haga uso de la entrada-salida mapeada a memoria.
+
+``` 
+(LOOP) @KBD
+D=M
+@CLEAN
+D;JEQ
+
+@SCREEN
+M=A
+
+@LOOP 
+0;JMP
+(CLEAN) @0
+D=A
+@SCREEN
+M=D
+@LOOP
+0;JMP
+ 
+```
+## 3.
+### - Vas a implementar y simular una modificación al reto 20 de la unidad anterior. Si se presiona la letra “d” muestras la imagen que diseñaste en el reto 18. Si no se presiona ninguna tecla, borrarás la imagen.
+
+```
+(LOOP) @KBD
+D=M
+@100
+D=D-A
+@CLEAN
+D;JNE
+
+@8184 
+D=A 
+@16384 
+M=D 
+@28686 
+D=A 
+@16416 
+M=D 
+@16381 
+D=-A 
+@16448 
+M=D 
+@32767 
+D=-A 
+@16480 
+M=D 
+@17347 
+D=-A 
+@16512 
+M=D 
+@19403 
+D=-A 
+@16544 
+M=D 
+@19403 
+D=-A 
+@16576 
+M=D 
+@17347 
+D=-A 
+@16608 
+M=D 
+@26599 
+D=-A 
+@16640 
+M=D 
+@32767 
+D=-A 
+@16672 
+M=D 
+@32767 
+D=-A 
+@16704 
+M=D 
+@15421 
+D=-A 
+@16736 
+M=D 
+@28686 
+D=A 
+@16768 
+M=D 
+@6168 
+D=A 
+@16800 
+M=D 
+@4080 
+D=A 
+@16832 
+M=D 
+@0 
+D=A 
+@16864 
+M=D
+@LOOP 
+0;JMP
+
+(CLEAN) @0
+D=A
+@16384 
+M=D
+@16416 
+M=D
+@16448 
+M=D
+@16480 
+M=D
+@16512 
+M=D
+@16544 
+M=D
+@16576 
+M=D
+@16608 
+M=D
+@16640 
+M=D
+@16672 
+M=D
+@16704 
+M=D
+@16736 
+M=D
+@16768 
+M=D
+@16800 
+M=D
+@16832 
+M=D
+@16864 
+M=D
+
+@LOOP
+0;JMP
+```
+
+## 4
+
+```
+(LOOP) @KBD
+D=M
+@100
+D=D-A
+@DRAW
+D;JEQ
+@KBD
+D=M
+@101
+D=D-A
+@CLEAN
+D;JEQ
+@LOOP
+0;JMP
+
+(DRAW)
+@8184 
+D=A 
+@16384 
+M=D 
+@28686 
+D=A 
+@16416 
+M=D 
+@16381 
+D=-A 
+@16448 
+M=D 
+@32767 
+D=-A 
+@16480 
+M=D 
+@17347 
+D=-A 
+@16512 
+M=D 
+@19403 
+D=-A 
+@16544 
+M=D 
+@19403 
+D=-A 
+@16576 
+M=D 
+@17347 
+D=-A 
+@16608 
+M=D 
+@26599 
+D=-A 
+@16640 
+M=D 
+@32767 
+D=-A 
+@16672 
+M=D 
+@32767 
+D=-A 
+@16704 
+M=D 
+@15421 
+D=-A 
+@16736 
+M=D 
+@28686 
+D=A 
+@16768 
+M=D 
+@6168 
+D=A 
+@16800 
+M=D 
+@4080 
+D=A 
+@16832 
+M=D 
+@0 
+D=A 
+@16864 
+M=D
+@LOOP 
+0;JMP
+
+(CLEAN) @0
+D=A
+@16384 
+M=D
+@16416 
+M=D
+@16448 
+M=D
+@16480 
+M=D
+@16512 
+M=D
+@16544 
+M=D
+@16576 
+M=D
+@16608 
+M=D
+@16640 
+M=D
+@16672 
+M=D
+@16704 
+M=D
+@16736 
+M=D
+@16768 
+M=D
+@16800 
+M=D
+@16832 
+M=D
+@16864 
+M=D
+
+@LOOP
+0;JMP
+```
+
+# Reto
+## 1.
+Escribe un programa en lenguaje ensamblador que sume los primeros 100 números naturales.
+
+```
+@i
+M=1       
+@sum
+M=0       
+
+(LOOP)
+    @i
+    D=M     
+    @101    
+    D=D-A
+    @END
+    D;JGE    
+
+
+    @i
+    D=M      
+    @sum
+    M=M+D    
+
+    // i++
+    @i
+    M=M+1   
+
+    @LOOP
+    0;JMP    
+
+(END)
+    @END
+    0;JMP    
+```
+- ¿Cómo están implementadas las variables i y sum?
+
+``i`` y ```sum``` se implementan como direcciones de memoria asignadas automáticamente por el ensamblador.
+Se accede a ellas con ``@i`` y ``@sum``, y se manipulan con instrucciones de carga.
+
+- ¿En qué direcciones de memoria están estas variables?
+`
+```i``` se almacena en la direccion 16 de la RAM
+```sum``` Se almacena en la dirección 17 de la RAM
+
+- ¿Cómo está implementado el ciclo while?
+
+El ``While`` se imlpementa para comparar al valor de ``ì``
+
+- ¿Cómo se implementa la variable i?
+
+``i`` funciona como una posicion enjn la RAM
+
+- ¿En qué parte de la memoria se almacena la variable i?
+
+Se almacena en la Dirección 16 de la RAM
+
+- Después de todo lo que has hecho, ¿Qué es entonces una variable?
+
+Es algo simbolico que representa una direccion en la memoria 
+
+- ¿Qué es la dirección de una variable?
+
+Es la ubciacion en donde se almacena un dato
+
+- ¿Qué es el contenido de una variable?
+
+El valor almecenado en la dirección
+
+## 2.
+Transforma el programa en alto nivel anterior para que utilice un ciclo ``for`` en vez de un ciclo ``while``.
+
+```
+@i
+M=1     
+@sum
+M=0       
+
+(LOOP)
+    @i
+    D=M      
+    @101     
+    D=D-A
+    @END
+    D;JGE   
+
+    @i
+    D=M     
+    @sum
+    M=M+D    
+
+   
+    @i
+    M=M+1   
+
+    @LOOP
+    0;JMP   
+
+(END)
+    @END
+    0;JMP    
+```
