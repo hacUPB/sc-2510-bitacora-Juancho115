@@ -1,3 +1,4 @@
+## 2.
 
 ### ¿Cuál es el resultado que se obtiene al ejecutar este programa?
 Lo que hace el programa es dibujar sobre la pantalla cada que se pasa el mouse por la pantalla 
@@ -29,3 +30,13 @@ Lo que hace que siempre se actualice de manera infinta
 ### - ¿Qué hace la función draw?
 
 Lo que permite mostrar el render 
+
+## 3. 
+### -Analiza la aplicación anterior. ¿Qué hace cada función? ¿Qué hace cada línea de código?
+- La primera linea es donde se declaran las clases y variables de el archivo
+- La segunda linea es donde está el inicio de la app y donde se configura el color del fondo 
+- La tercera linea es donde se deberia actualizar la aplicacion constantemente
+- La cuarta linea está el metodo que permite dibujar, tiene las posicisiones de las particulas, establece el color de las particulas y dibuja un circulo por donde se pase el puntero 
+- La quinta linea es la que tiene en cuenta en que posicion está el mouse en todo momento, y agrega las particulas en la posicion del mouse y hace la funcion de eliminar las particulas que ya no se usan 
+- La sexta linea detecta cuando se le da click al boton y cambia el color de las particulas de manera aleatoria 
+
