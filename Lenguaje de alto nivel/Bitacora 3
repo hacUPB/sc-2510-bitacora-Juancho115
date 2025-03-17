@@ -40,3 +40,77 @@ Lo que permite mostrar el render
 - La quinta linea es la que tiene en cuenta en que posicion está el mouse en todo momento, y agrega las particulas en la posicion del mouse y hace la funcion de eliminar las particulas que ya no se usan 
 - La sexta linea detecta cuando se le da click al boton y cambia el color de las particulas de manera aleatoria 
 
+## 5.
+**¿Cuál es la definición de puntero?**
+
+Un puntero en programación es una variable que almacena la dirección de memoria de otra variable. En lugar de almacenar directamente un valor, un puntero almacena la ubicación en la memoria donde se encuentra el valor. Los punteros permiten acceder y manipular la información en esa ubicación de memoria.
+
+**¿Dónde Está el Puntero?**
+
+En ofApp.h:
+
+``` c++
+class ofApp : public ofBaseApp {
+    // ...
+private:
+    vector<Sphere*> spheres;
+    Sphere* selectedSphere;
+};
+
+```
+
+* vector<Sphere*> spheres; es un vector de punteros a objetos de la clase Sphere. Cada elemento en este vector es un puntero que apunta a una instancia de Sphere.
+  
+* Sphere* selectedSphere; es un puntero a un objeto de la clase Sphere. Este puntero se usa para hacer referencia a la esfera que actualmente está seleccionada.
+
+**¿Cómo se Inicializa el Puntero?**
+
+En el archivo ofApp.cpp, el puntero selectedSphere se inicializa:
+
+``` c++
+selectedSphere = nullptr;
+
+```
+
+selectedSphere = nullptr;: Inicializa el puntero selectedSphere a nullptr, lo que significa que no apunta a ninguna ubicación de memoria válida al comienzo. Esto es una práctica común para evitar que el puntero apunte a una dirección de memoria aleatoria o inválida.
+
+
+**¿Para Qué Se Está Usando el Puntero?**
+
+* selectedSphere: Se utiliza para hacer referencia a la esfera actualmente seleccionada por el usuario. Cuando se hace clic en una esfera, selectedSphere apunta a esa esfera, permitiendo que la esfera seleccionada se mueva con el ratón.
+
+* spheres: El vector spheres almacena punteros a instancias de Sphere. Se utiliza para gestionar y manipular un conjunto de esferas, permitiendo crear múltiples esferas dinámicamente y acceder a ellas a través de sus punteros.
+
+**¿Qué Es Exactamente lo Que Está Almacenado en el Puntero?**
+
+* selectedSphere: Este puntero almacena la dirección de memoria de un objeto Sphere que se ha seleccionado. Si no hay ninguna esfera seleccionada, el puntero es nullptr. Si hay una esfera seleccionada, el puntero contiene la dirección de esa instancia específica de Sphere.
+
+* spheres: Este vector almacena punteros a diferentes instancias de Sphere. Cada puntero dentro del vector apunta a una ubicación en la memoria donde se encuentra un objeto Sphere creado dinámicamente. Así, spheres contiene las direcciones de memoria de múltiples objetos Sphere.
+
+## 6 
+
+**El código anterior tiene un problema. ¿Puedes identificar cuál es? ¿Cómo lo solucionarías? Recuerda que deberías poder seleccionar una esfera y moverla con el mouse.**
+
+### Identificación del Problema
+
+1. Problema de Actualización de la Posición:
+
+    * En el método update de ofApp, la posición de la esfera seleccionada se actualiza directamente a la posición del mouse (selectedSphere->update(ofGetMouseX(), ofGetMouseY());). Esto hace que, mientras el botón del mouse está presionado, la esfera se mueva con el mouse, pero una vez que se suelta el botón, la esfera debería dejar de moverse. No hay ningún código que haga que la esfera deje de moverse al soltar el botón del mouse.
+No hay Desselección de Esfera:
+
+2. No hay lógica para deselectar la esfera seleccionada cuando el mouse se mueve o se suelta.
+   
+   * Esto puede causar problemas si se selecciona una esfera y luego se mueve el mouse, ya que la esfera seguirá moviéndose aunque el mouse no esté presionado.
+  
+  ### Solución
+
+1. Agregar Deselección:
+
+* Cambiar el comportamiento en `mousePressed` para que solo se seleccione una esfera si el mouse está presionado y no moverla si el botón no está presionado.
+
+
+
+
+## 7 Modifica el archivo ofApp.h
+
+
