@@ -330,7 +330,8 @@ int sum = 0;
 for (int j = 0; j < 10; j++) {
     sum = sum + arr[j];
 }
-```
+´´´
+´´´
 // int[] arr = new int[10];
 @32 // Direccion Arbitraria donde inicia el array
 D=A
