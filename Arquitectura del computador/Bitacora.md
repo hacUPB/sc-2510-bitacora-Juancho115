@@ -294,25 +294,19 @@ M=D
 ## . 
 
 ```
-```
-@R1
-D=M
-@SIZE
-M=D
-
 (LOOP)
-@SIZE        
+@R1
 D=M
 @END
 D;JEQ
 
-@START       
-A=M         
-M=-1        
+@R0
+A=M
+M=-1
 
-@START
+@R0
 M=M+1
-@SIZE
+@R1
 M=M-1
 @LOOP
 0;JMP
@@ -320,7 +314,6 @@ M=M-1
 (END)
 @END
 0;JMP
-```
 ```
 
 ## 16 Implementa en lenguaje ensamblador el siguiente programa:
@@ -337,31 +330,37 @@ for (int j = 0; j < 10; j++) {
 D=A
 @arrAddr // Variable que indica la direccion inicial/base del array
 M=D
+
 @10 // Tamaño del array
 D=A
 @arrSize // Variable que almacena el tamaño del array
 M=D
+
 // for (int j = 0; j < 10; j++) {
-(LOOP) @j
+(LOOP)
+@j
 D=M
 @arrSize
 D=D-M
 @END
 D;JEQ
+
 //     sum = sum + arr[j];
 @arrAddr
 D=M
 @j
 A=D+M
 D=M
+
 @sum
 M=D+M
+
 @1
 D=A
 @j
 M=D+M
 @LOOP
-0;JEQ
+0;JMP
 // }
 (END) 0;JMP
 ```
@@ -374,15 +373,15 @@ El programa suma todos los digitos del Array
 
 # b ¿Cuál es la dirección base de array en la memoria RAM?
 
-La dirección del array es la 256 en la RAM y los 10 elementos del ```Array``` se almacenan de forma continua
+La dirección del array es la 32 en la RAM y los 10 elementos del ```Array``` se almacenan de forma continua
 
 # c ¿Cuál es la dirección base de sum en la memoria RAM y por qué?
 
-La dirección base de sum es 10 despues de la direccion base del array porque el array ocupa 10 espacios
+La dirección base de sum es la 19. debido al orden de declaracion de variables
 
 # d ¿Cuál es la dirección base de j en la memoria RAM y por qué?
 
-La dirección de j está una posicion despues de sum, porque justo despues de declarar a sum declara a j
+La dirección base de j es la direccion 18, debido al orden de declaracion de variables
 
 ## 17 Implementa en lenguaje ensamblador:
 ```
