@@ -334,7 +334,7 @@ void ofApp::createObjectInStack() {
 
 - ¿Qué sucede cuando presionas la tecla “c”?
 
-* Trata de dibujar en la pantlla un objeto que está almacenado en una región de la memoria
+* Trata de dibujar en la pantalla un objeto que está almacenado en una región de la memoria
 
 - Realiza esta modificación a la función createObjectInStack donde claramente se está creando un objeto, pero se está creando en el heap y no en el stack, así que no te dejes confundir por el nombre de la función.
 
@@ -357,6 +357,6 @@ Se dibuja lo que anteriormente estaba almacenado
 
 - ¿Por qué ocurre esto?
 
-Crear el objeto en el heap asegura que el objeto persiste mientras el puntero sea válido. La memoria del objeto no se libera automáticamente, lo que requiere que gestiones la memoria manualmente para evitar fugas.
+Crear el objeto en el heap asegura que el objeto persiste mientras el puntero sea válido, La memoria del objeto no se libera automáticamente, lo que requiere que gestiones la memoria manualmente para evitar fugas.
 
 ## 8 Construye un experimento (un programa) en el que puedas crear y dibujar objetos que se almacenan:
